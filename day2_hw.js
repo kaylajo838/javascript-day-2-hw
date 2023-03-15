@@ -101,34 +101,41 @@ console.log(person2.printInfo())
 let string = 'supercalifragalisticexpialidocious'
 
 // create new promise
-const bigWord = new Promise(((resolve, reject) => {
-    // resolve is string is > 10
-    if (string.length > 10) {
-        resolve('Success')
-    // reject if string is not > 10
-    } else {
-        reject('Not a big word.')
-    }
-}))
+function bigWord() {
+    return new Promise(((resolve, reject) => {
+        // resolve is string is > 10
+        if (string.length > 10) {
+            resolve('Success')
+        // reject if string is not > 10
+        } else {
+            reject('Failed.')
+        }
+    }))
+}
+
 // log the promise
-bigWord.then(() => {
+bigWord().then(() => {
         console.log(`Big Number`)
 }).catch(() => {
         console.log(`Small Number`)
 })
 
 // test small word string
-let string2 = 'supers'
+let string2 = 'super'
 
-const smallWord = new Promise(((resolve, reject) => {
-    if (string2.length > 10) {
-        resolve('Success')
-    } else {
-        reject('Not a big word.')
-    }
-}))
+function smallWord() {
+    return new Promise(((resolve, reject) => {
+        // resolve is string is > 10
+        if (string2.length > 10) {
+            resolve('Success')
+        // reject if string is not > 10
+        } else {
+            reject('Failed')
+        }
+    }))
+}
 
-smallWord.then(() => {
+smallWord().then(() => {
         console.log(`Big Number`)
 }).catch(() => {
         console.log(`Small Number`)
