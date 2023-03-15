@@ -22,6 +22,7 @@ let favFoodFunc = (person) => {
     console.log("*--Favorite Food Dishes--*");
 
     console.log("Favorite Pizza:");
+    // loop through pizza array values
      for (let i = 0; i < person.pizza.length; i++) {
         console.log("- " + person.pizza[i]);
     }
@@ -33,12 +34,15 @@ let favFoodFunc = (person) => {
     console.log("- " + person.burgers);
   
     console.log("Favorite Ice Cream:");
+    // loop through ice cream array values
     for (let i = 0; i < person.ice_cream.length; i++) {
         console.log("- " + person.ice_cream[i]);
     }
   
     console.log("Favorite Shakes:");
+    // find the 0th index since values are stored in an array
     let shakesObj = person.shakes[0];
+    // loop through the above object to get values 
     for (let place in shakesObj) {
         console.log("- " + shakesObj[place] + " shake from " + place);
   }
@@ -79,6 +83,7 @@ class Person {
 
 let person1 = new Person('Kayla', 31)
 console.log(person1.printInfo())
+// increment age 3 times
 console.log(person1.incrementAge())
 console.log(person1.incrementAge())
 console.log(person1.incrementAge())
@@ -92,7 +97,42 @@ console.log(person2.printInfo())
     If the length of the string is less than 10 console log "Small Number"
 */
 
+// test big word string 
+let string = 'supercalifragalisticexpialidocious'
 
+// create new promise
+const bigWord = new Promise(((resolve, reject) => {
+    // resolve is string is > 10
+    if (string.length > 10) {
+        resolve('Success')
+    // reject if string is not > 10
+    } else {
+        reject('Not a big word.')
+    }
+}))
+// log the promise
+bigWord.then(() => {
+        console.log(`Big Number`)
+}).catch(() => {
+        console.log(`Small Number`)
+})
+
+// test small word string
+let string2 = 'supers'
+
+const smallWord = new Promise(((resolve, reject) => {
+    if (string2.length > 10) {
+        resolve('Success')
+    } else {
+        reject('Not a big word.')
+    }
+}))
+
+smallWord.then(() => {
+        console.log(`Big Number`)
+}).catch(() => {
+        console.log(`Small Number`)
+})
 
 // ============= Codewars Problems ============//
 // =============Exercise #4 ============//
@@ -106,6 +146,7 @@ console.log(person2.printInfo())
 // 4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5
 
 let isDivisible = (n, x, y) => {
+    // checking if n has a remainder of 0 with x and y 
     if (n % y === 0 && n % x === 0) {
         return true
     } else {
